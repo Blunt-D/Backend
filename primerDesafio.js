@@ -1,5 +1,5 @@
 class Usuario {
-    constructor(firstName, lastName, libros, pets){
+    constructor(firstName, lastName){
         this.nombre = firstName
         this.apellido = lastName
         this.libros = [] 
@@ -21,8 +21,15 @@ class Usuario {
     })
     }
     getBooksNames() {
-    return console.log(`Los libros en la lista son:`, this.libros.map((key) => key.titulo))
-    } 
+        try {
+            if (this.libros.length) {
+              return console.log(`Los libros en la lista del usuario son:`, this.libros.map((key) => key.titulo ))
+            } else {
+              return 'No hay libros en la lista del usuario';
+            }
+          } catch (e) {
+            return [];
+          }    } 
     }
 
 const usuarioPrueba = new Usuario(
